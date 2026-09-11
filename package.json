@@ -1,0 +1,25 @@
+{
+  "name": "govconnect",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GovConnect - Government Interoperability Platform",
+  "scripts": {
+    "dev": "pnpm --parallel -r run dev",
+    "dev:api": "pnpm --filter @govconnect/api run dev",
+    "dev:web": "pnpm --filter @govconnect/web run dev",
+    "dev:depts": "pnpm --filter @govconnect/mock-departments run dev",
+    "test": "pnpm --filter @govconnect/api test",
+    "build": "pnpm -r run build",
+    "lint": "pnpm -r run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "docker:logs": "docker compose logs -f",
+    "seed": "pnpm --filter @govconnect/api run seed",
+    "clean": "pnpm -r exec rm -rf node_modules dist && rm -rf node_modules"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

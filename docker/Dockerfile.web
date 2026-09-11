@@ -1,0 +1,32 @@
+# Stage 1: Build the React web application
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Enable corepack for pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copy workspace definition files
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* .pnpmrc.yaml* ./
+COPY packages ./packages
+COPY apps/web ./apps/web
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile || pnpm install
+
+# Build web portal
+RUN pnpm --filter @govconnect/web run build
+
+# Stage 2: Serve static files with Nginx
+FROM nginx:alpine
+
+# Copy built assets from builder stage
+COPY --from=builder /app/apps/web/dist /usr/share/nginx/html
+
+# Copy Nginx reverse proxy configuration
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose HTTP port
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

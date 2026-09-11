@@ -1,0 +1,121 @@
+/* ─── Admin Demo Controls Styles ─────────────────────────── */
+.admin-demo-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-demo-controls__header {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.sim-depts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.sim-dept-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sim-dept-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.sim-status-pill {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.sim-status-pill--normal {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.sim-status-pill--slow,
+.sim-status-pill--timeout,
+.sim-status-pill--malformed_response {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.sim-status-pill--failure {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.sim-modes-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sim-mode-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+}
+
+.sim-mode-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-mode-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: left;
+}
+
+.sim-mode-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.sim-mode-btn--active-normal {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+  box-shadow: 0 0 0 1px #86efac;
+}
+
+.sim-mode-btn--active-warning {
+  background: #fffbeb;
+  border-color: #fde047;
+  color: #854d0e;
+  box-shadow: 0 0 0 1px #fde047;
+}
+
+.sim-mode-btn--active-danger {
+  background: #fef2f2;
+  border-color: #fca5a5;
+  color: #991b1b;
+  box-shadow: 0 0 0 1px #fca5a5;
+}

@@ -1,0 +1,113 @@
+/* ─── Admin Audit Ledger Styles ──────────────────────────── */
+.admin-audit {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-audit__header {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.chain-verification-banner {
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  border: 1px solid transparent;
+}
+
+.chain-verification-banner--valid {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.chain-verification-banner--tampered {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+
+.admin-audit__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.audit-table th {
+  background: #f8fafc;
+  padding: 12px 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.audit-table td {
+  padding: 14px 20px;
+  font-size: 0.875rem;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.audit-table tr:hover td {
+  background: #f8fafc;
+}
+
+.seq-badge {
+  font-family: monospace;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #1d4ed8;
+  background: #eff6ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.hash-chain-display {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hash-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.hash-tag {
+  font-size: 0.625rem;
+  font-weight: 700;
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.hash-tag--curr {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.hash-row code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #334155;
+  background: #f1f5f9;
+  padding: 1px 6px;
+  border-radius: 3px;
+}

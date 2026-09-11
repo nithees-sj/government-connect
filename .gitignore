@@ -1,0 +1,92 @@
+# ==============================================================================
+# GovInterconnect — Comprehensive Git Ignore Rules
+# ==============================================================================
+
+# Dependencies
+node_modules/
+**/node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+
+# Production Builds & Compiler Outputs
+dist/
+**/dist/
+dist-ssr/
+build/
+**/build/
+out/
+.next/
+*.tsbuildinfo
+.tsbuildinfo
+.vite/
+.turbo/
+.cache/
+
+# Environment Variables & Secrets
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.local
+# Whitelist example configs
+!.env.example
+!apps/*/.env.example
+
+# Local Database, Caches & File Uploads
+mongodb_data/
+redis_data/
+data/
+*.rdb
+uploads/
+**/uploads/
+*.sqlite
+*.sqlite-journal
+
+# Logs & Runtime Diagnostics
+logs/
+**/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.pid
+*.seed
+*.pid.lock
+
+# Testing & Code Coverage
+coverage/
+**/coverage/
+.nyc_output/
+*.lcov
+junit.xml
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# IDE & Code Editors
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swo
+*.sublime-project
+*.sublime-workspace
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

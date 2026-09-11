@@ -1,0 +1,23 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Enable corepack for pnpm
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# Copy workspace definition files
+COPY package.json pnpm-lock.yaml* pnpm-workspace.yaml* .pnpmrc.yaml* ./
+COPY packages ./packages
+COPY apps/api ./apps/api
+
+# Install dependencies
+RUN pnpm install --frozen-lockfile || pnpm install
+
+# Expose API Gateway port
+EXPOSE 8000
+
+# Create uploads directory
+RUN mkdir -p apps/api/uploads
+
+# Start script: seed database and start API server using tsx runtime
+CMD ["sh", "-c", "pnpm --filter @govconnect/api run seed && npx tsx apps/api/src/server.ts"]

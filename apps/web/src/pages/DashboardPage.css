@@ -1,0 +1,514 @@
+/* ─── Dashboard Styles (GovConnect Design System) ────── */
+.citizen-dash {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* ─── Welcome Header ───────────────────────────────────── */
+.citizen-dash__welcome {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .citizen-dash__welcome {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.citizen-dash__badge-single-window {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-teal);
+  margin-bottom: 4px;
+}
+
+.citizen-dash__title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.citizen-dash__meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.citizen-dash__id-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: var(--color-surface-container);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+}
+
+.citizen-dash__id-label {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+}
+
+.citizen-dash__id-code {
+  font-family: var(--font-code);
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.citizen-dash__assurance-level {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+.citizen-dash__action-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ─── KPI Metrics Grid ─────────────────────────────────── */
+.citizen-dash__kpis {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .citizen-dash__kpis {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .citizen-dash__kpis {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.kpi-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.kpi-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.kpi-card__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+}
+
+.kpi-card__icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-subtle);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-card__value {
+  font-family: var(--font-headline);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1;
+}
+
+.kpi-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+}
+
+/* ─── Priority Applications Stack ──────────────────────── */
+.citizen-dash__section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.citizen-dash__section-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.citizen-dash__section-sub {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.app-priority-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: all 0.2s ease;
+}
+
+.app-priority-card:hover {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-md);
+}
+
+.app-priority-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .app-priority-card__top {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.app-priority-card__main-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.app-priority-card__icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-container);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-priority-card__tags {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.app-priority-card__ref {
+  font-family: var(--font-code);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: var(--color-surface-subtle);
+  border-radius: var(--radius-xs);
+  color: var(--color-text);
+}
+
+.app-priority-card__name {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.app-priority-card__desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+/* ─── Timeline / Progress Visualizer ───────────────────── */
+.workflow-progress-box {
+  background: #f8fafc;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.workflow-progress-box__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .workflow-progress-box__header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: var(--color-teal);
+  border-radius: var(--radius-full);
+  transition: width 0.6s ease;
+}
+
+.horizontal-stepper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 12px;
+  padding-top: 8px;
+}
+
+@media (min-width: 640px) {
+  .horizontal-stepper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stepper-step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.stepper-step--completed {
+  color: var(--color-teal-dark);
+}
+
+.stepper-step--active {
+  color: var(--color-secondary);
+  font-weight: 700;
+}
+
+.stepper-step--pending {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+/* ─── Notice / Callout Alert Box ───────────────────────── */
+.notice-box {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.notice-box__icon {
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+
+.notice-box__title {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.notice-box__text {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.notice-box__meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ─── Bottom Two Columns ───────────────────────────────── */
+.citizen-dash__bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 1024px) {
+  .citizen-dash__bottom-grid {
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.activity-list {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.activity-item__left {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.activity-item__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface-container);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activity-item__title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.activity-item__desc {
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.activity-item__time {
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* ─── Quick Services Panel ─────────────────────────────── */
+.quick-services-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quick-launch-btn {
+  width: 100%;
+  padding: 16px 20px;
+  background: var(--color-surface-container);
+  border: 1px solid var(--color-secondary-container);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.15s ease;
+  text-decoration: none;
+}
+
+.quick-launch-btn:hover {
+  background: #e0ecff;
+  border-color: var(--color-secondary);
+  text-decoration: none;
+}
+
+.quick-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.catalog-item {
+  padding: 14px;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.catalog-item:hover {
+  background: #ffffff;
+  border-color: var(--color-secondary);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.catalog-item__title {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.catalog-item__sub {
+  font-size: 0.6875rem;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}

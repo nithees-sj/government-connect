@@ -1,0 +1,116 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "GovConnect Sovereign Interoperability API",
+    "version": "1.0.0",
+    "description": "Enterprise-grade Government-to-Government (G2G) and Government-to-Citizen (G2C) data exchange platform fulfilling SIH26129 specifications."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api/v1",
+      "description": "Local API Gateway Server"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/auth/register": {
+      "post": {
+        "summary": "Register a new citizen account",
+        "tags": ["Authentication"]
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Authenticate user and receive JWT access token",
+        "tags": ["Authentication"]
+      }
+    },
+    "/auth/refresh": {
+      "post": {
+        "summary": "Rotate refresh token and issue new access token",
+        "tags": ["Authentication"]
+      }
+    },
+    "/auth/me": {
+      "get": {
+        "summary": "Get authenticated user profile and permissions",
+        "tags": ["Authentication"]
+      }
+    },
+    "/applications": {
+      "get": {
+        "summary": "List applications with role-based filtering and pagination",
+        "tags": ["Applications"]
+      },
+      "post": {
+        "summary": "Submit a new service application and initiate automated workflow",
+        "tags": ["Applications"]
+      }
+    },
+    "/applications/{id}": {
+      "get": {
+        "summary": "Get detailed application status, workflow steps, and audit logs",
+        "tags": ["Applications"]
+      }
+    },
+    "/consents": {
+      "get": {
+        "summary": "List active DPDP consents for citizen",
+        "tags": ["Consent & Privacy"]
+      },
+      "post": {
+        "summary": "Grant new DPDP consent token to department",
+        "tags": ["Consent & Privacy"]
+      }
+    },
+    "/documents/upload": {
+      "post": {
+        "summary": "Upload document with SHA-256 integrity check and virus scan",
+        "tags": ["Document Vault"]
+      }
+    },
+    "/admin/connectors": {
+      "get": {
+        "summary": "Get health, latency, and circuit breaker states for all department connectors",
+        "tags": ["Admin & Operations"]
+      }
+    },
+    "/admin/monitoring/overview": {
+      "get": {
+        "summary": "Platform telemetry, real-time KPIs, and 7-day trend analytics",
+        "tags": ["Admin & Operations"]
+      }
+    },
+    "/ai/suggest-mapping": {
+      "post": {
+        "summary": "AI schema mapping recommendation with confidence scoring",
+        "tags": ["AI Services"]
+      }
+    },
+    "/ai/detect-duplicates": {
+      "post": {
+        "summary": "AI duplicate application detection across sovereign registries",
+        "tags": ["AI Services"]
+      }
+    },
+    "/ai/monitoring-query": {
+      "post": {
+        "summary": "Natural language query assistant over live telemetry and logs",
+        "tags": ["AI Services"]
+      }
+    }
+  }
+}

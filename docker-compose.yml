@@ -1,0 +1,100 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: govconnect-mongodb
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: govconnect
+      MONGO_INITDB_ROOT_PASSWORD: govconnect_dev_2024
+      MONGO_INITDB_DATABASE: govconnect
+    volumes:
+      - mongodb_data:/data/db
+      - ./docker/mongo-init.js:/docker-entrypoint-initdb.d/init.js:ro
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh --quiet
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  redis:
+    image: redis:7-alpine
+    container_name: govconnect-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    command: redis-server --appendonly yes --maxmemory 256mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mock-departments:
+    container_name: govconnect-mock-departments
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.mock-departments
+    restart: unless-stopped
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+      - '9002:9002'
+      - '9003:9003'
+    environment:
+      - DEPT_A_PORT=9001
+      - DEPT_B_PORT=9002
+      - DEPT_C_PORT=9003
+      - SIM_PORT=9000
+
+  api:
+    container_name: govconnect-api
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.api
+    restart: unless-stopped
+    ports:
+      - '8000:8000'
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mock-departments:
+        condition: service_started
+    environment:
+      - NODE_ENV=development
+      - PORT=8000
+      - MONGODB_URI=mongodb://govconnect:govconnect_dev_2024@mongodb:27017/govconnect?authSource=admin
+      - REDIS_URL=redis://redis:6379
+      - JWT_ACCESS_SECRET=govconnect-access-secret-change-in-production
+      - JWT_REFRESH_SECRET=govconnect-refresh-secret-change-in-production
+      - JWT_ACCESS_EXPIRY=15m
+      - JWT_REFRESH_EXPIRY=7d
+      - CORS_ORIGIN=http://localhost:5173
+      - DEPT_A_URL=http://mock-departments:9001
+      - DEPT_B_URL=http://mock-departments:9002
+      - DEPT_C_URL=http://mock-departments:9003
+      - SIM_URL=http://mock-departments:9000
+      - LOG_LEVEL=debug
+
+  web:
+    container_name: govconnect-web
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.web
+    restart: unless-stopped
+    ports:
+      - '5173:80'
+    depends_on:
+      - api
+
+volumes:
+  mongodb_data:
+    driver: local
+  redis_data:
+    driver: local

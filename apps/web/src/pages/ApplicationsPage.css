@@ -1,0 +1,224 @@
+/* ─── Applications List Page Styles ─────────────────────── */
+.apps-page {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.apps-page__header {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+  .apps-page__header {
+    flex-direction: row;
+    align-items: flex-end;
+  }
+}
+
+.apps-page__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.apps-page__subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* ─── Filter & Search Bar ───────────────────────────────── */
+.apps-page__controls {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .apps-page__controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.apps-page__search-wrap {
+  position: relative;
+  flex: 1;
+  max-width: 480px;
+}
+
+.apps-page__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.apps-page__search-input {
+  width: 100%;
+  height: 40px;
+  padding-left: 42px;
+  padding-right: 14px;
+  background: var(--color-surface-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--color-text);
+  transition: all 0.15s ease;
+}
+
+.apps-page__search-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--color-secondary);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.12);
+}
+
+.apps-page__filter-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.filter-chip {
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  background: var(--color-surface-subtle);
+  color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.filter-chip:hover {
+  background: var(--color-surface-high);
+  color: var(--color-text);
+}
+
+.filter-chip--active {
+  background: var(--color-primary);
+  color: #ffffff;
+  border-color: var(--color-primary);
+}
+
+.filter-chip__count {
+  font-size: 0.6875rem;
+  padding: 1px 6px;
+  border-radius: var(--radius-full);
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.filter-chip--active .filter-chip__count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ─── Applications Data Table ───────────────────────────── */
+.apps-table-container {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.apps-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.apps-table th {
+  background: #f8fafc;
+  padding: 14px 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.apps-table td {
+  padding: 18px 20px;
+  font-size: 0.875rem;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+.apps-table tr:last-child td {
+  border-bottom: none;
+}
+
+.apps-table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+.apps-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+.apps-table__ref {
+  font-family: var(--font-code);
+  font-weight: 700;
+  color: var(--color-text);
+  background: var(--color-surface-subtle);
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  display: inline-block;
+}
+
+.apps-table__service-title {
+  font-weight: 600;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  display: block;
+}
+
+.apps-table__service-dept {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.apps-table__progress {
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.apps-table__progress-track {
+  width: 100%;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.apps-table__progress-fill {
+  height: 100%;
+  background: var(--color-teal);
+  border-radius: var(--radius-full);
+}

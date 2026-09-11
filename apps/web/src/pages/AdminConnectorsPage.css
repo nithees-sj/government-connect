@@ -1,0 +1,256 @@
+/* ─── Admin Connectors Styles ───────────────────────────── */
+.admin-connectors {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.admin-connectors__header {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: var(--color-surface-container);
+  color: var(--color-secondary);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.admin-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.admin-desc {
+  font-size: 0.875rem;
+  color: #64748b;
+  max-width: 680px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+/* ─── Circuit Breaker State Guide ───────────────────────── */
+.breaker-explainer {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.breaker-state-guide {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 800px) {
+  .breaker-state-guide {
+    grid-template-columns: 1fr;
+  }
+}
+
+.state-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+}
+
+.state-chip strong {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.state-chip span {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.state-chip--closed {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.state-chip--half-open {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #b45309;
+}
+
+.state-chip--open {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot--green { background: #16a34a; }
+.dot--yellow { background: #d97706; }
+.dot--red { background: #dc2626; }
+
+/* ─── Connectors Grid ───────────────────────────────────── */
+.connectors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 20px;
+}
+
+.connector-card {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  transition: all 0.2s ease;
+}
+
+.connector-card--open {
+  border-color: #f87171;
+  box-shadow: 0 0 0 1px #f87171, 0 4px 6px -1px rgba(220, 38, 38, 0.1);
+}
+
+.connector-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.connector-dept-badge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.connector-name {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 2px 0 4px;
+}
+
+.connector-endpoint {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: #0d9488;
+  background: #f0fdfa;
+  padding: 2px 6px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.circuit-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.circuit-pill--closed {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.circuit-pill--half_open {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.circuit-pill--open {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.circuit-pulse {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.connector-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.metric-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.metric-box__label {
+  font-size: 0.6875rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.metric-box__val {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+.connector-error-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #991b1b;
+  font-size: 0.75rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.connector-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 16px;
+}
+
+.btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+}
